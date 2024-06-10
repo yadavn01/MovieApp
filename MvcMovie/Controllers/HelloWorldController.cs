@@ -12,8 +12,10 @@ public class HelloWorldController : Controller
     }
 
     //Get: /HellowWorld/Welcome/
-    public String Welcome(string name, int numTimes = 1)
+    public IActionResult Welcome(string name, int numTimes)
     {
-        return HtmlEncoder.Default.Encode($"Hello {name}, NumTimes is: {numTimes}");
+        ViewData["Message"] = "Hello" + name;
+        ViewData["NumTimes"] = numTimes;
+        return View();
     }
 }
