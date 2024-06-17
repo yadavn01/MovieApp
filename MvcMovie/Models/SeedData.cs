@@ -46,7 +46,6 @@ public static class SeedData
                 new Movie
                 {
                     Title = "Rio Bravo",
-                    Rating = "R",
                     ReleaseDate = DateTime.Parse("1959-4-15"),
                     Genre = "Western",
                     Price = 3.99M
