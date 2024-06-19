@@ -4,16 +4,16 @@ using MvcMovie.Data;
 using MvcMovie.Models;
 var builder = WebApplication.CreateBuilder(args);
 
-if (builder.Environment.IsDevelopment())
-{
     builder.Services.AddDbContext<MvcMovieContext>(options =>
-        options.UseSqlite(builder.Configuration.GetConnectionString("MvcMovieContext")));
-}
-else
-{
-    builder.Services.AddDbContext<MvcMovieContext>(options =>
-        options.UseSqlServer(builder.Configuration.GetConnectionString("ProductionMvcMovieContext")));
-}
+     options.UseSqlite(builder.Configuration.GetConnectionString("MvcMovieContext")));
+// if (builder.Environment.IsDevelopment())
+// {
+// }
+// else
+// {
+//     builder.Services.AddDbContext<MvcMovieContext>(options =>
+//         options.UseSqlServer(builder.Configuration.GetConnectionString("ProductionMvcMovieContext")));
+// }
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -45,4 +45,4 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.Run();
+app.Run("http://0.0.0.0:80");
