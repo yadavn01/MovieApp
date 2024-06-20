@@ -18,6 +18,13 @@ spec:
         env:
         - name: ASPNETCORE_URLS
           value: http://*:80
+        volumeMounts:
+        - name: data-volume
+          mountPath: /app/data
+      volumes:
+      - name: data-volume
+        persistentVolumeClaim:
+          claimName: pvc-mvcmovie
   selector:
     matchLabels:
       app: mvcmovie
